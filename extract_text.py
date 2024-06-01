@@ -1,6 +1,6 @@
+import requests
 from io import BytesIO
 from PyPDF2 import PdfReader
-import requests
 
 
 def extract_text(files):
@@ -10,8 +10,8 @@ def extract_text(files):
 
         file = files[i]
 
-        file_url = file["url"]
-        file_name = file["name"]
+        file_url = file.url
+        file_name = file.name
 
         remote_file = requests.get(file_url)
         remote_file.raise_for_status()
