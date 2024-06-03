@@ -33,7 +33,7 @@ async def read_root():
 @app.post("/extract-and-generate")
 async def extract_and_generate(files: List[Item]):
     try:
-        print(files)
+        print("\nfiles\n", files)
 
         content = extract_text(files=files)
 
@@ -41,8 +41,9 @@ async def extract_and_generate(files: List[Item]):
 
         content_str = json.dumps(content)
 
-        # print("extractedText:", content_str)
-        # print("response", response)
+        print("\nextractedText\n", content_str)
+        print("\nresponse\n", response)
+
         return {"extractedText": content_str, "response": response}
 
     except Exception as e:
